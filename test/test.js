@@ -22,4 +22,10 @@ describe("Welcome to CI/CD Server", function() {
       assert.strictEqual(res, message);
     });  
   });
+
+  describe("Failing test", function (){
+    it("shall not pass", function(){
+      assert.strictEqual(true, false);
+    });  
+  });
 });
