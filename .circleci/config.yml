@@ -48,9 +48,6 @@ jobs:
       - docker/build:
           image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
           tag: 0.1.<< pipeline.number >>
-      - snyk/scan:
-          docker-image-name: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
-          fail-on-issues: false
       - docker/push:
           image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
           tag: 0.1.<< pipeline.number >>
@@ -81,7 +78,6 @@ workflows:
       - build-docker:
           context: 
             - docker-deployment
-            - infosec-team
       - hold-for-approval:
           type: approval
           context: prod-deployment
