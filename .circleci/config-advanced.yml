@@ -22,6 +22,7 @@ jobs:
       - run:
           name: Copy tests results for storing
           command: |
+            mkdir ~/test-results/
             cp test-results.xml ~/test-results/
           when: always
       - store_test_results:
@@ -78,7 +79,7 @@ workflows:
       - dependency-vulnerability-scan:
           context:
             - Infosec
-      - build-docker
+      - build-docker:
           context:
             - Deployment
       - hold-for-approval:
