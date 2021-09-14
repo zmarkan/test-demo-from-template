@@ -43,3 +43,5 @@ workflows:
       - deploy-docker:
           requires:
             - build-and-test
+          context:
+            - Deployers
