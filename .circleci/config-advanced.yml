@@ -79,7 +79,9 @@ workflows:
       - dependency-vulnerability-scan:
           context: Infosec
       - build-docker:
-          context: Deployment
+          context: 
+            - docker-deployment
+            - Infosec
       - hold-for-approval:
           type: approval
           requires: 
