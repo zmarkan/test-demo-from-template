@@ -76,8 +76,12 @@ workflows:
           matrix:
             parameters:
               node-version: ["13.8", "14.2", "15.11"]
-      - dependency-vulnerability-scan
+      - dependency-vulnerability-scan:
+          context:
+            - Infosec
       - build-docker
+          context:
+            - Deployment
       - hold-for-approval:
           type: approval
           requires: 
