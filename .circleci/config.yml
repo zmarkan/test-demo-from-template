@@ -84,6 +84,7 @@ workflows:
             - infosec-team
       - hold-for-approval:
           type: approval
+          context: prod-deployment
           requires: 
             - build-docker
             - dependency-vulnerability-scan
